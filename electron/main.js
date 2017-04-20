@@ -111,9 +111,11 @@ if (process.platform === 'win32') {
 // Fix indicator icon on Unity
 // Source: https://bugs.launchpad.net/ubuntu/+bug/1559249
 ///////////////////////////////////////////////////////////////////////////////
-if (process.env.XDG_CURRENT_DESKTOP && process.env.XDG_CURRENT_DESKTOP.includes('Unity')) {
-  process.env.XDG_CURRENT_DESKTOP = 'Unity';
-};
+if (process.platform === 'linux'){
+  if (process.env.XDG_CURRENT_DESKTOP && process.env.XDG_CURRENT_DESKTOP.includes('Unity')) {
+    process.env.XDG_CURRENT_DESKTOP = 'Unity';
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // IPC events
